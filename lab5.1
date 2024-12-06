@@ -1,0 +1,30 @@
+#include <iostream>
+#include <cmath> 
+
+
+double t(double x) {
+    return 1 + x + std::sqrt(1 + x * x);
+}
+
+int main() {
+    double y;
+    std::cout << "y = ";
+    std::cin >> y;
+
+    // Обчислення t(1 + y)
+    double t1 = t(1 + y);
+
+    // Обчислення t(2 * t(1))
+    double t2 = t(2 * t(1));
+
+    // Підсумкове обчислення виразу
+    double numerator = 1 + 2 * t1 + t2;
+    double denominator = 1 + std::pow(t1, 2);
+
+    double result = numerator / denominator;
+
+    // Вивід результату
+    std::cout << "t: " << result << std::endl;
+
+    return 0;
+}
